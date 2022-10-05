@@ -9,31 +9,829 @@ button, summary {
 	cursor: pointer;
 }
 
-
-
-
-
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
 	/* startje */
 	--color-text:#111;
-	--color-background:#eee;
+	--color-background:rgb(255, 255, 255);
+	--font1:'Cera Pro'
+	--color-bg: #FDF1F2;
+	--color-heart: #EA442B;
+	--easing: cubic-bezier(.7,0,.3,1);
+	--duration: .5s;
 }
-
-
-
-
 
 /****************/
 /* JOUW STYLING */
 /****************/
 
 /* jouw code */
-
+@font-face {
+	font-family: 'Cera Pro';
+	src: url('https://assets.lego.com/fonts/v3/cera-pro/CeraPro-Bold.woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
 body {
   color:var(--color-text);
   background-color:var(--color-background);
+  max-width: 100%;
+  margin: 0;
+  font-family: 'Cera Pro';
+  margin-top: 4em;
+}
+/* hamburger menu */
+.menuItem {
+	display: block;
+	margin: 2rem 4rem;
+	font-size: 1.8rem;
+	color: white;
+	text-decoration: none;
 }
 
+.menuItem:hover {
+	text-decoration: underline;
+}
+.hamburger{
+	background: none;
+	border: none;
+}
+nav{
+	position: fixed;
+	z-index: 100;
+	background: white;
+	display: flex;
+	align-items: center;
+	margin-top: -5.3em;
+	padding-top: 2em;
+	cursor: pointer;
+}
+nav img, nav button{
+	margin-right: 1em;
+}
+nav a:first-of-type{
+	margin-right: 5em;
+}
+.closeIcon {
+	display: none;
+}
+.menu {
+	position: fixed;
+	transform: translatex(-100%);
+	transition: transform 0.3s;
+	top: -1em;
+	left: 0;
+	right: 0;
+	bottom: -1em;
+	z-index: 99;
+	background: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	list-style: none;
+	margin-left: -2em;
+}
+.menu hr{
+	background-color: #E0E0E0;
+	height: .1em;
+	margin-left: -1em;
+}
+.menu img:first-of-type{
+	width: 2.5em;
+}
+.menu button{
+	margin-top: 4.5em;
+	background-color: #ABD9FF;
+	border-style: none;
+	width: 335px;
+	height: 40px;
+	margin-left: 13px;
+}
+.menu h2{
+	font-size: 14px;
+	margin-left: 15px;
+}
+.menu h4{
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	margin-left: 15px;
+}
+.menu h4 img{
+	margin-right: 1em;
+}
+.showMenu {
+	transform: translateX(0);
+}
+header{
+	width: 100em;
+}
+header a:first-of-type{
+	justify-self: start;
+	align-self: center;
+}
+header a:first-of-type img{
+	width: 40px;
+	height: 40px;
+	justify-self: start;
+}
+header a:nth-of-type(2) img{
+	width: 18px;
+}
+header a:nth-of-type(3) img{
+	width: 24px;
+}
+header a:nth-of-type(4) img{
+	width: 20px;
+}
+header a:nth-of-type(5) img{
+	width: 16px;
+}
+footer{
+	color: #FFFFFF;
+	background-color: #1f1f45;
+	padding-top: 35px;
+}
+footer a{
+	margin-bottom: 24px;
+}
+footer div{
+	display: flex;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+footer div img{
+	width: 12px;
+}
+footer div:first-of-type{
+	display: flex;
+	justify-content: left;
+	margin-bottom: 32px;
+}
+footer div:first-of-type img{
+	width: 70px;
+}
+footer div:first-of-type button img{
+	width: 17.5px;
+}
+footer div:nth-of-type(2){
+	display: flex;
+	flex-direction: column;
+}
+footer div:nth-of-type(3) button{
+	width: 50px;
+}
+footer div:last-of-type{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 0px;	
+	margin-right: 10px;
+	font-size: .75em;
+}
+footer p:first-of-type{
+	text-transform: uppercase;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 15px;
+	margin: 0;
+}
+footer p:last-of-type{
+	font-size: .75em;
+	margin: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+footer button{
+	width: 147px;
+	height: 45px;
+	margin-left:  10px;
+	color: #FFFFFF;
+	border-style: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+footer button img{
+	width: 16px;
+}
+footer hr{
+	height: .1em;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+footer a:link{
+	text-decoration: none;
+}
+footer form{
+	display: flex;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+footer form input{
+	width: 266px;
+	height: 55.2px;
+	border-style: none;
+	padding-left: 20px;
+}
+footer form input:last-of-type{
+	width: 50px;
+	background-color: #ee853e;
+	border-radius: 0px 5px 5px 0px;
+	font-size: 16px;
+	background-image: url(../images/Navigatie/pijl-Lego.svg);
+	background-repeat: no-repeat, repeat;
+	background-size: 10.3px;
+	background-position: center;
+}
+/* Footer openen */
+footer ul {
+	list-style: none;
+}
+footer h4{
+	margin-left: 30px;
+}
+details > summary {
+	cursor: pointer;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
+details > summary::after {
+	content: ">";
+	margin-left: auto;
+}
+details[open] > summary::after {
+	transform: rotate(90deg);
+}
+summary::-webkit-details-marker {
+	display: none;
+}
+a{
+	font-family: 'Noto Sans', sans-serif;
+}
+
+hr{
+	background-color: #FFCF00;
+	height: .15em;
+	border-style: none;
+}
+.home p{
+	display: flex;
+	justify-content: center;
+	font-size: 15px;
+	font-family: 'Noto Sans', sans-serif;
+}
+main h3{
+	font-family: 'Noto Sans', sans-serif;
+}
+img{
+	max-width: 100%;
+}
+section{
+	margin-left: 22px;
+}
+article{
+	display: flex;
+	justify-content: center;
+	justify-content: space-evenly;
+}
+a img{
+	width: 1.65em;
+}
+/* promotie */
+.home section:first-of-type{
+	background-color: #00A3DA;
+	color: rgb(0, 0, 0);
+	margin-left: 0;
+	display: block;
+	padding-bottom: 1.1em;
+}
+.home section:first-of-type h3{
+	display: flex;
+	justify-content: center;
+	font-size: 1.1em;
+}
+.home section:first-of-type a, section:nth-of-type(6) a{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 150px;
+	height: 40px;
+	border-radius: 5px;
+	background-color: #000000;
+	color:#ffffff
+}
+.home section:first-of-type a img{
+	width: 10px;
+}
+/* links */
+.home section:nth-of-type(2){
+	grid-template-columns: repeat(4, 83.75px);
+	grid-template-rows: 60px 38.75px  60px 38.75px;
+	justify-content: center;
+	margin-top: 1em;
+	margin-left: 0;
+	margin-bottom: 0;
+	grid-column-gap: 0px;
+}
+.home section:nth-of-type(2) img{
+	width: 60px;
+	height: 48.75px;
+	justify-self: center;
+	align-self: center;
+}
+.home section:nth-of-type(2) h4{
+	justify-self: center;
+	align-self: center;
+	font-size: .75em;
+	font-weight: 100;
+}
+/* alle sections van main behalve bovenste 2 */
+.home main section{
+	overflow-x: auto;
+	display: grid;
+	padding-bottom: 60px;
+	grid-column-gap: 20px;
+}
+.home main section p{
+	display: flex;
+	text-align: center;
+}
+.home section button{
+	justify-self: center;
+}
+/* aanbevolen */
+.home section:nth-of-type(3){
+	grid-template-columns: 279.25px 279.25px 279.25px 279.25px;
+	grid-template-rows: 40px 279.25px 60px;
+	margin-bottom: 2em;
+}
+.home section:nth-of-type(3) img{
+	width: 279.23px;
+	height: 279.23px;
+	border-color: #E0E0E0;
+	border-style: solid;
+	border-width: 1px;
+	margin-top: 21.5px;
+}
+.home section:nth-of-type(3) button{
+	width: 70px;
+	height: 53px;
+	background-color: #ee853e;
+	border-radius: 5px;
+	border-style: none;
+	font-weight: 500;
+}
+.home section:nth-of-type(3) h3{
+	grid-column-start: 1;
+	grid-column-end: 5;
+	font-weight: 100;
+}
+.home section:nth-of-type(3) div{
+	display: flex;
+	justify-self: flex-start;
+
+}
+.home section:nth-of-type(3) p{
+	margin: 10px;
+	align-self: center;
+	font-weight: 1000;
+}
+/* Best verkocht */
+.home section:nth-of-type(4){
+	grid-template-columns: repeat(4, 281.25px);
+	grid-template-rows: minmax(20px)194.867px 20px 20px 20px;
+	margin-bottom: 2em;
+}
+.home section:nth-of-type(4) img{
+	width: 281.25px;
+	height: 194.867px;
+}
+.home section:nth-of-type(4) h3{
+	grid-column-start: 1;
+	grid-column-end: 5;
+	font-weight: 100;
+}
+.home section:nth-of-type(4) p{
+	text-align: center;
+}
+.home section:nth-of-type(4) a{
+	justify-self: center;
+	color: black;
+}
+/* Voor het hele gezin */
+.home section:nth-of-type(5){
+	grid-template-columns: repeat(3, 281.25px);
+	grid-template-rows: 20px 195px 60px 30;
+	margin-bottom: 2em;
+}
+.home section:nth-of-type(5) h3{
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+/* marylin monroe */
+.home section:nth-of-type(6){
+	background-color: #efab42;
+	margin-left: 0;
+	
+}
+/* Speciale aanbiedingen */
+.home section:nth-of-type(7){
+	grid-template-columns: repeat(2, 281.25px);
+	grid-template-rows: 20px 195px 60px 30;
+	margin-bottom: 2em;
+}
+.home section:nth-of-type(7) h3{
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+/* Lees er alles over */
+.home section:nth-of-type(8){
+	grid-template-columns: repeat(3, 281.25px);
+	grid-template-rows: 20px 195px 60px 30;
+	margin-bottom: 2em;
+}
+.home section:nth-of-type(8) h3{
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+/* Uitgelichte sets */
+.home section:nth-of-type(9){
+	grid-template-columns: repeat(4, 281.25px);
+	grid-template-rows: 20 281.25px 20px;
+	margin-bottom: 2em;
+}
+.home section:nth-of-type(9) h3{
+	grid-column-start: 1;
+	grid-column-end: 5;
+}
+/* De scrollbar onder de fotos waar overflow plaastvindt. */
+section::-webkit-scrollbar{
+	height: 1em;
+}
+section::-webkit-scrollbar-track{
+	background: rgb(241, 240, 240);
+	
+	margin: 20px;
+}
+section::-webkit-scrollbar-thumb{
+	background: url(../images/Navigatie/profiel-Lego-balk.svg);
+	/* background: rgb(80, 81, 83); */
+}
+
+
+
+
+/* pagina 2  */
+.overig main section:first-of-type p{
+	font-size: 14px;
+}
+.overig main section:first-of-type h4{
+	font-size: 14px;
+}
+.overig main section:first-of-type h5{
+	font-size: 14px;
+	background-color: #FFCF00;
+	display: inline;
+	padding: .5em;
+}
+.overig main section:first-of-type article:first-of-type button{
+	width: 5em;
+	position: relative;
+	left: 14em;
+	bottom: 24em;
+	border-style: none;
+	background: none;
+}
+/* breadcrumbs */
+.overig main div:first-of-type a{
+	font-size: 14px;
+}
+.overig main div:first-of-type img{
+	width: 10px;
+	margin-left: .5em;
+	margin-right: .5em;
+	opacity: 50%;
+}
+.overig main section:first-of-type div:first-of-type{
+	display: flex;
+	align-items: center;
+}
+/* product */
+.overig main section:first-of-type article img{
+	width: 4.8em;
+	border-style: solid;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-color: rgb(226, 216, 216);
+	border-width: .1em;
+	margin-right: 2em;
+}
+.overig main section:first-of-type article img:nth-of-type(2){
+	width: 4.8em;
+	border-style: solid;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-color: #006DB7;
+	border-width: .1em;
+	margin-right: 2em;
+}
+.overig main article:first-of-type img:first-of-type{
+	width: 17.5em;
+	margin-left: 2.5em;
+	margin-right: 2.5em;
+	border-style: none;
+}
+.overig main article:first-of-type{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+/* Knoppen voor meer of minder in tas */
+.overig main section:first-of-type article:nth-of-type(2){
+	display: flex;
+	justify-content: start;
+}
+.overig main section:first-of-type article:nth-of-type(2) div:first-of-type{
+	display: inline-flex;
+	background: none;
+	border-style: solid;
+	border-color: #ebe8e8;
+	width: 9.3em;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: .5em
+}
+.overig main section:first-of-type article:nth-of-type(2) div:first-of-type button{
+	background: none;
+	border-style: none;
+	font-size: 2em;
+}
+/* limiet */
+.overig main section:first-of-type article:nth-of-type(2) div:nth-of-type(2){
+	display: flex;
+	margin-left: 1em;
+}
+.overig main section:first-of-type article:nth-of-type(2) div:nth-of-type(2) button{
+	background: none;
+	border-style: solid;
+	border-color: #ebe8e8;
+	border-radius: 100%;
+	width: 2em;
+	height: 2em;
+	align-self: center;
+	margin: 0;
+	margin-left: 1em;
+	
+}
+/* stop item in tas */
+.overig main section:first-of-type div:nth-of-type(2) button:first-of-type{
+	width: 21.4em;
+	height: 53px;
+	background-color: #ee853e;
+	border-radius: 5px;
+	border-style: none;
+	font-weight: 500;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	margin-right: 1em;
+}	
+.overig main section:first-of-type div:nth-of-type(2) {
+	display: flex;
+	align-items: center;
+}
+.overig main section:first-of-type article:nth-of-type(2) button:first-of-type{
+	color: #7e7d7c;
+}
+/* broodjeszaak cadeau */
+.overig main section:first-of-type article:last-of-type{
+	background-color: rgba(147, 188, 246, 0.3);
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-right: 1.5em;
+}
+.overig main section:first-of-type article:last-of-type img{
+	width: 6em;
+	height: 3em;
+	border-style: none;
+}
+.overig main section:first-of-type article:last-of-type div{
+	display: flex;
+	flex-direction: column;
+}
+.overig main section:first-of-type article:last-of-type a{
+	margin-right: 9.5em;
+}
+/* info */
+.overig main section:nth-of-type(2) hr{
+	background-color:  #ebe8e8;
+	height: .1em;
+	margin-top: 1.3em;
+	margin-bottom: 1.3em;
+}
+.overig main section:nth-of-type(2) div:first-of-type img{
+	width: 1.5em;
+}
+.overig main section:nth-of-type(2) div:nth-of-type(2) img{
+	width: 2.5em;
+}
+.overig main section:nth-of-type(2) article:first-of-type{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: minmax(2.5em, auto);
+	margin-right: 1.65em;
+}
+.overig main section:nth-of-type(2) article:first-of-type img{
+	width: 2.5em;
+	align-self: center;
+	justify-self: center;
+}
+.overig main section:nth-of-type(2) article:first-of-type img:last-of-type, .overig main section:nth-of-type(2) article:first-of-type p:nth-last-of-type(2), .overig main section:nth-of-type(2) article:first-of-type p:last-of-type{
+	grid-column: 2;
+}
+.overig main section:nth-of-type(2) article:first-of-type p{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* subkopjes */
+.overig main section:nth-of-type(3){
+	margin: 0;
+}
+.overig main section:nth-of-type(3) div{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(238, 231, 231, 0.4);
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+.overig main section:nth-of-type(3) h2{
+	font-size: 1em;
+	margin-left:  1.5em;
+
+	display: inline-flex;
+}
+.overig main section:nth-of-type(3) hr{
+	background-color: #E0E0E0;
+	margin: -.1em;
+	height: .1em;
+}
+.overig main section:nth-of-type(3) button{
+	margin-right: 1.5em;
+	border-radius: 100%;
+	background-color: #FFFFFF;
+	width: 1.5em;
+	height: 1.5em;
+}
+/* soortgelijke producten */
+
+.overig main section:nth-of-type(3) p:last-of-type{
+	margin-left: 1.5em;
+	margin-top: 3em;
+}
+.overig main section:nth-of-type(3) a{
+	margin-left: 1.5em;
+	color: #006DB7;
+	border: #006DB7;
+	border-style: solid;
+	padding: .6em;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-radius: .4em;
+	border-width: .08em;
+}
+.overig main section:nth-of-type(3) a:link{
+	text-decoration: none;
+}
+.overig main section:nth-of-type(3) hr:last-of-type{
+	background-color: #E0E0E0;
+	margin-top: 3em;
+	margin-bottom: 2em;
+}
+/* aanbevolen */
+.overig main section:last-of-type{
+	grid-template-columns: 279.25px 279.25px 279.25px 279.25px;
+	grid-template-rows: 40px 279.25px 60px;
+	margin-bottom: 2em;
+}
+.overig main section:last-of-type{
+	overflow-x: auto;
+	display: grid;
+	padding-bottom: 60px;
+	grid-column-gap: 20px;
+}
+.overig main section:last-of-type img{
+	width: 279.23px;
+	height: 279.23px;
+	border-color: #E0E0E0;
+	border-style: solid;
+	border-width: 1px;
+	margin-top: 21.5px;
+}
+.overig main section:last-of-type button{
+	width: 70px;
+	height: 53px;
+	background-color: #ee853e;
+	border-radius: 5px;
+	border-style: none;
+	font-weight: 500;
+}
+.overig main section:last-of-type h3{
+	grid-column-start: 1;
+	grid-column-end: 5;
+	font-weight: 100;
+}
+.overig main section:last-of-type div{
+	display: flex;
+	justify-self: flex-start;
+
+}
+.overig main section:last-of-type p{
+	margin: 10px;
+	align-self: center;
+	font-weight: 1000;
+}
+/* js classes om toe te voegen bij events */
+.geselecteerd{
+	width: 4.8em;
+	border-style: solid;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-color: #006DB7;
+	border-width: .1em;
+	margin-right: 2em;
+}
+.gedeselecteerd{
+	width: 4.8em;
+	border-style: solid;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-color: #e2d8d8;
+	border-width: .1em;
+	margin-right: 2em;
+}
+
+
+
+.like-button {
+  font-size: 5em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  z-index: 2;
+  -webkit-transition: -webkit-transform var(--duration) var(--easing);
+  transition: -webkit-transform var(--duration) var(--easing);
+  transition: transform var(--duration) var(--easing);
+  transition: transform var(--duration) var(--easing), -webkit-transform var(--duration) var(--easing);
+  cursor: pointer;
+}
+.heart > path {
+  stroke: var(--color-heart);
+  stroke-width: 2;
+  fill: transparent;
+  -webkit-transition: fill var(--duration) var(--easing);
+  transition: fill var(--duration) var(--easing);
+}
+.like-button:focus .heart > path {
+  fill: var(--color-heart);
+}
+.like-button:focus .heart {
+  -webkit-animation: heart-bounce var(--duration) var(--easing);
+          animation: heart-bounce var(--duration) var(--easing);
+}
+@-webkit-keyframes heart-bounce {
+  40% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  0%, 80%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes heart-bounce {
+  40% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  0%, 80%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/* Reset the animation when clicking again! */
+.like-button:focus {
+  pointer-events: none;
+  cursor: normal;
+}
